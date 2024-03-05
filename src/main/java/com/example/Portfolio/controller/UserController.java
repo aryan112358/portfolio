@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,6 +39,14 @@ public class UserController {
         try{
             user = userService.createUser(userDTO);
         }
+        catch (Exception e){
+            e.printStackTrace();
+            logger.info("Exception occurred : "+ e.getMessage());
+            return  new ResponseEntity<>("User creation failed", HttpStatus.NOT_FOUND);
+
+        }
+
+        return  new ResponseEntity<>("User creation done", HttpStatus.OK);
     }
 
 }

@@ -15,7 +15,12 @@ public class userService {
         User user=new User();
 
         if(user!=null){
-            user.setName(userDTO);
+            user.setName(userDTO.getName());
+            user.setContact(userDTO.getContact()!=null?userDTO.getContact():null);
+            user.setDOB(userDTO.getDOB()!=null?userDTO.getDOB():null);
+            user.setEducation(userDTO.getEducation()!=null?userDTO.getEducation():null);
+            user.setProjects(userDTO.getProjects()!=null?userDTO.getProjects():null);
         }
+        return user;
     }
 }

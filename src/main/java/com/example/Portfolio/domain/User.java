@@ -26,7 +26,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn( name = "contact_id")
         )
-    private List<Contacts> contact = new java.util.ArrayList<>();
+    private List<Contacts> contact ;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinTable(
@@ -42,7 +42,7 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "project_id")
     )
-    private  List<Project> projects = new java.util.ArrayList<>();
+    private  List<Project> projects ;
 
     public Long getId() {
         return id;
